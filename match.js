@@ -1,6 +1,7 @@
 // String.match(regex) is used for match
 // between regular expression and the string object
 // match() will return an array with some information about the match inside
+// and it will only return the first match
 // when match() fails it returns null
 
 
