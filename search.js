@@ -2,6 +2,7 @@
 // between regular expression and the string object
 // search() will always returns an index that is the index of the first match
 // search() is case sensitive
+// when search fails it returns -1
 
 
 // examples
