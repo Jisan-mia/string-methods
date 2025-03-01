@@ -1,11 +1,6 @@
-﻿### Every string method in JavaScript
-
----
-
 ### 1. charAt
 
-- String.charAt(index) method takes a parameter index(index position of the string) and
-- returns the charter at that index from the string
+- The `String.charAt(index)` method takes a parameter `index` (the position in the string) and returns the character at that index in the string.
 
 #### Examples
 
@@ -16,27 +11,25 @@ console.log(string.charAt(4)); // 'o'
 
 ### 2. indexOf
 
-- String.indexOf(searchString) takes a parameter searchString
-- and it searches the searchString inside the string starting from the start/left
-  -and returns the index value of the searchString from first occurrence if found, if not returns -1
-- if nothing is passed as a parameter, the parameter will be undefined
+- The `String.indexOf(searchString)` method takes a parameter `searchString` and searches for it within the string, starting from the beginning (left side).
+- It returns the index of the first occurrence of `searchString` if found; if not found, it returns -1.
+- If no parameter is provided, it defaults to `undefined`.
 
 #### Examples
 
-```JS
-const string = 'The code undefined code code'
-console.log(string.indexOf('code')) // 4
-console.log(string.indexOf('Code')) // -1
-console.log(string.indexOf('')) // 0
-console.log(string.indexOf()) // 9 // since undefined automatically passed and 'undefined' is in the string and matched it.
+```js
+const string = 'The code undefined code code';
+console.log(string.indexOf('code')); // 4
+console.log(string.indexOf('Code')); // -1
+console.log(string.indexOf('')); // 0
+console.log(string.indexOf()); // 9 (since undefined was passed automatically, and 'undefined' is present in the string)
 ```
 
 ### 3. lastIndexOf
 
-- String.lastIndexOf(searchString) takes a parameter searchString
-- and it searches the searchString inside the string starting from the right/end
-- and returns the index value of the searchString from last occurrence if found, if not returns -1
-- if nothing passed as a parameter, the parameter will be undefined
+- The `String.lastIndexOf(searchString)` method takes a parameter `searchString` and searches for it within the string starting from the end (right side).
+- It returns the index of the last occurrence of `searchString` if found; if not found, it returns -1.
+- If no parameter is provided, it defaults to `undefined`.
 
 #### Examples
 
@@ -45,27 +38,25 @@ const string = "The code undefined code code";
 console.log(string.lastIndexOf("code")); // 24
 console.log(string.lastIndexOf("Code")); // -1
 console.log(string.lastIndexOf("")); // 28
-console.log(string.lastIndexOf()); // 9 // since undefined automatically passed and 'undefined' is in the string and matched it.
+console.log(string.lastIndexOf()); // 9 (since undefined was passed automatically, and 'undefined' is present in the string)
 ```
 
 ### 4. slice
 
-- String.slice() method extracts a section of a string and returns as a new string so they don't change the original string
-- syntax
-- String.slice(indexStart, indexEnd)
-- indexStart is the position from where we want to start taking a slice from the original string
-- if negative index is given, slice() will go from the end of the string, end character will index will be -1, second last character index will be -2 and so on
-- indexEnd is the position where we want slice() to stop slicing the string
-- the indexEnd'th will be excluded
-- if indexStart is getter than indexEnd, then slice() will return ''(empty string)
+- The `String.slice()` method extracts a section of a string and returns it as a new string, leaving the original string unchanged.
+- **Syntax:** `String.slice(indexStart, indexEnd)`
+  - `indexStart` is the position from where the slice starts.
+  - If a negative index is given, `slice()` starts counting from the end of the string (e.g., -1 is the last character).
+  - `indexEnd` is the position where the slicing stops (this position is excluded).
+  - If `indexStart` is greater than `indexEnd`, `slice()` returns an empty string.
 
 #### Examples
 
 ```js
 const string = "The morning is upon us.";
-console.log(string.slice(12)); // is upon us.
-console.log(string.slice(-11)); // is upon us.
-console.log(string.slice(13, 16)); // s u
+console.log(string.slice(12)); // 'is upon us.'
+console.log(string.slice(-11)); // 'is upon us.'
+console.log(string.slice(13, 16)); // 's u'
 console.log(string.slice(16, 13)); // ''
 console.log(string.slice(-8, -4)); // 'upon'
 console.log(string.slice(-8, 4)); // ''
@@ -74,23 +65,21 @@ console.log(string.slice(8, -4)); // 'ing is upon'
 
 ### 5. substring
 
-- String.substring() method extracts a section of a string and returns as a new string so they don't change the original string
-- syntax
-- String.substring(indexStart, indexEnd)
-- indexStart is the position from where we want to start taking a slice from the original string
-- if negative index is given, substring() assumes any negative index as 0, so extract from the start
-- indexEnd is the position where we want substring() to stop slicing the string
-- the indexEnd'th will be excluded
-- if indexStart is getter than indexEnd, then substring() will swap there positions
+- The `String.substring()` method extracts a section of a string and returns it as a new string, leaving the original string unchanged.
+- **Syntax:** `String.substring(indexStart, indexEnd)`
+  - `indexStart` is the position from where to start extracting.
+  - If a negative index is provided, `substring()` treats it as 0, starting from the beginning of the string.
+  - `indexEnd` is where the extraction stops (this position is excluded).
+  - If `indexStart` is greater than `indexEnd`, `substring()` swaps their positions.
 
 #### Examples
 
 ```js
 const string = "The morning is upon us.";
-console.log(string.substring(12)); // is upon us.
-console.log(string.substring(-11)); // is upon us.
-console.log(string.substring(13, 16)); // s u
-console.log(string.substring(16, 13)); // s u
+console.log(string.substring(12)); // 'is upon us.'
+console.log(string.substring(-11)); // 'is upon us.'
+console.log(string.substring(13, 16)); // 's u'
+console.log(string.substring(16, 13)); // 's u'
 console.log(string.substring(-8, -4)); // 'upon'
 console.log(string.substring(-8, 4)); // 'The'
 console.log(string.substring(8, -4)); // 'The morn'
@@ -98,10 +87,8 @@ console.log(string.substring(8, -4)); // 'The morn'
 
 ### 6. split
 
-- String.split(separator) is used whenever we want to divide
-- our string into substring based on a separator we pass into the split() method
-- and split() method will return those substring ordered inside an array and returns the array
-- so it doesn't modify the original array
+- The `String.split(separator)` method is used to divide a string into substrings based on a specified separator.
+- It returns the substrings in an array, without modifying the original string.
 
 #### Examples
 
@@ -124,8 +111,7 @@ console.log(string.split("o")); // [ 'The m', 'rning is up', 'n us.' ]
 
 ### 7. includes
 
-- String.includes(searchString) is used whenever we want to see or determine
-- if our string is found within another string, if found returns true else false
+- The `String.includes(searchString)` method checks if a string contains a specified substring and returns `true` if it does, or `false` if it does not.
 
 #### Examples
 
@@ -138,7 +124,7 @@ console.log(string.includes()); // true
 
 ### 8. startsWith
 
-- String.startsWith(searchString) is used whenever we ant to check if a string starts with another string or not
+- The `String.startsWith(searchString)` method checks if a string begins with a specified substring.
 
 #### Examples
 
@@ -147,10 +133,10 @@ const string = "Playing cricket is good for health";
 console.log(string.startsWith("Playing")); // true
 console.log(string.startsWith("cricket")); // false
 ```
-
+ 
 ### 9. endsWith
 
-- String.endsWith(searchString) checks whether a string ends with another string or not
+- `String.endsWith(searchString)` checks whether a string ends with a specified substring.
 
 #### Examples
 
@@ -162,8 +148,8 @@ console.log(string.endsWith("beautiful")); // false
 
 ### 10. concat
 
-- String.concat(str1, str2, strN) is used to concatenate strings
-- it returns a new string and doesn't modify original strings
+- `String.concat(str1, str2, strN)` is used to concatenate multiple strings.
+- It returns a new string without modifying the original strings.
 
 #### Examples
 
@@ -173,19 +159,19 @@ const str2 = "World!";
 const concatenatedStr = str1.concat(" ", str2); // Hello World!
 console.log(concatenatedStr);
 
-/* Performance notes
-it is strongly recommended to use assignment operators (+, +=) instead of the concat() method
+/* Performance note: 
+It is strongly recommended to use the assignment operators (+, +=) instead of the concat() method.
 */
 ```
 
 ### 11. repeat
 
-- String.repeat(count) is used whenever we want to do more copies of a string
-- it takes a count parameter which defines the number copies of the string should be done
-- returns new string by not modifying original string
-- if 0 or no parameter is passed repeat() will return empty string
-- if decimal number is passed, repeat() will convert this into an integer
-- -1 as counter will return RangeError
+- `String.repeat(count)` is used to create multiple copies of a string.
+- It takes a `count` parameter that defines how many copies of the string should be made.
+- It returns a new string without modifying the original string.
+- If `0` or no parameter is passed, `repeat()` will return an empty string.
+- If a decimal number is passed, `repeat()` will convert it into an integer.
+- Passing any negative value as the counter will return a `RangeError`.
 
 #### Examples
 
@@ -196,16 +182,16 @@ console.log(fiveCopies);
 
 console.log(string.repeat()); // ''
 console.log(string.repeat(1)); // hello
-console.log(string.repeat(2.5)); // helohelo
+console.log(string.repeat(2.5)); // hellohello
 console.log(string.repeat(-1)); // RangeError
 console.log(string.repeat(1 / 0)); // RangeError
 ```
 
 ### 12. trim
 
-- String.trim() is used to remove white space from both start and end of the string
-- or removes the leading and trailing white space and line terminator characters from a string.
-- it returns new string and does not modify origin string
+- `String.trim()` is used to remove whitespace from both the start and end of a string.
+- It removes leading and trailing whitespace and line terminator characters.
+- It returns a new string without modifying the original string.
 
 #### Examples
 
@@ -218,9 +204,9 @@ console.log(trimmedStr); // 'Hello World'
 
 ### 13. trimStart
 
-- String.trimStart() is used to remove white space from the start of a string
-- or removes the leading white space and line terminator characters from a string.
-- it returns new string and does not modify origin string
+- `String.trimStart()` is used to remove whitespace from the start of a string.
+- It removes leading whitespace and line terminator characters.
+- It returns a new string and does not modify the original string.
 
 #### Examples
 
@@ -233,9 +219,9 @@ console.log(trimmedStr); // 'Hello World '
 
 ### 14. trimEnd
 
-- String.trimEnd() is used to remove white space from the end of a string
-- or removes the trailing white space and line terminator characters from a string.
-- it returns new string and does not modify origin string
+- `String.trimEnd()` is used to remove whitespace from the end of a string.
+- It removes trailing whitespace and line terminator characters.
+- It returns a new string without modifying the original string.
 
 #### Examples
 
@@ -248,10 +234,9 @@ console.log(trimmedStr); // ' Hello World'
 
 ### 15. padStart
 
-- String.padStart(targetLength, padString) is used whenever we want to pad our original string
-- from the start with another string to reach a given or target length
-- if targetLength is given but padString is not given, then padString will be by default space
-- it returns new string not modifying original string
+- `String.padStart(targetLength, padString)` is used to pad the original string from the start with another string to reach a specified target length.
+- If `targetLength` is provided but `padString` is not, it defaults to a space.
+- It returns a new string without modifying the original string.
 
 #### Examples
 
@@ -259,16 +244,15 @@ console.log(trimmedStr); // ' Hello World'
 const string = "abc";
 console.log(string.padStart(10)); // '       abc'
 console.log(string.padStart(10, "foo")); // 'foofoofabc'
-console.log(string.padStart(10, "12345678")); // '1234567abc'
+console.log(string.padStart(10, "12345678")); // '12345678abc'
 console.log(string.padStart(2)); // 'abc'
 ```
 
 ### 16. padEnd
 
-- String.padEnd(targetLength, padString) is used whenever we want to pad our original string
-- from the end with another string to reach a given or target length
-- if targetLength is given but padString is not given, then padString will be by default space
-- it returns new string not modifying original string
+- `String.padEnd(targetLength, padString)` is used to pad the original string from the end with another string to reach a specified target length.
+- If `targetLength` is provided but `padString` is not, it defaults to a space.
+- It returns a new string without modifying the original string.
 
 #### Examples
 
@@ -276,17 +260,17 @@ console.log(string.padStart(2)); // 'abc'
 const string = "abc";
 console.log(string.padEnd(10)); // 'abc       '
 console.log(string.padEnd(10, "foo")); // 'abcfoofoof'
-console.log(string.padEnd(10, "12345678")); // 'abc1234567'
+console.log(string.padEnd(10, "12345678")); // 'abc12345678'
 console.log(string.padEnd(2)); // 'abc'
 ```
 
 ### 17. localeCompare
 
-- referenceString.localCompare(compareString) is used whenever we want to compare two strings
-- localCompare() returns a numeric value
-- if the referenceString occurs before compareString it will return a negative value (-1/-2/-3)
-- if the referenceString occurs after compareString it will return a positive value (+1/+2)
-- if the referenceString is equivalent to compareString it will return 0
+- `referenceString.localeCompare(compareString)` is used whenever we want to compare two strings.
+- `localeCompare()` returns a numeric value:
+  - If `referenceString` comes before `compareString`, t will return a negative value (-1, -2, -3, etc.).
+  - If `referenceString` comes after `compareString`, it will return a positive value (+1, +2, etc.).
+  - If the referenceString is equivalent to compareString, it will return 0.
 
 #### Examples
 
@@ -301,18 +285,16 @@ console.log(a.localeCompare(a)); // 0
 
 ### 18. search
 
-- String.search(regex) is used to search for a match
-- between regular expression and the string object
-- search() will always returns an index that is the index of the first match
-- search() is case sensitive
-- when search fails it returns -1
+- `String.search(regex)` is used to search for a match between a regular expression and the string object.
+- `search()` will always returns the index of the first match and it is case sensitive.
+- If no match is found, it returns `-1`.
 
 #### Examples
 
 ```js
 const string = "The rain in SPAIN stays mainly in the plain";
 
-console.log(string.search("ain")); // 5 // search() will convert 'ain' into regular expression
+console.log(string.search("ain")); // 5 (search converts 'ain' into a regular expression)
 console.log(string.search(/ain/)); // 5
 console.log(string.search(/AIN/)); // 14
 console.log(string.search(/AIN/i)); // 5
@@ -321,18 +303,17 @@ console.log(string.search(/w/)); // -1
 
 ### 19. match
 
-- String.match(regex) is used for match
-- between regular expression and the string object
-- match() will return an array with some information about the match inside
-- and it will only return the first match
-- when match() fails it returns null
+- `String.match(regex)` method is used to find a match between a regular expression and the string object.
+- `match()` method returns an array containing information about the match.
+- It will return only the first match it finds unless the global flag(`g`) is used in the regular expression.
+- If `match()` fails, it returns `null`.
 
 #### Examples
 
 ```js
 const string = "The rain in SPAIN stays mainly in the plain";
 
-console.log(string.match("ain")); // match() will convert 'ain' into regular expression
+console.log(string.match("ain")); // The match() method converts 'ain' into a regular expression
 /* 
 [
   'ain',
@@ -341,7 +322,7 @@ console.log(string.match("ain")); // match() will convert 'ain' into regular exp
   groups: undefined
 ]
 */
-console.log(string.match(/ain/));
+console.log(string.match(/ain/)); // same as the first example
 console.log(string.match(/AIN/g)); // [ 'AIN' ]
 console.log(string.match(/AIN/gi)); // [ 'ain', 'AIN', 'ain', 'ain' ]
 console.log(string.match(/w/)); // null
@@ -349,11 +330,10 @@ console.log(string.match(/w/)); // null
 
 ### 20. matchAll
 
-- String.matchAll(regex) is used for match
-- between regular expression and the string object
-- matchAll() will return an array with some information about the match inside
-- and it will return an iterable of matches containing the results of that search.
-- when matchAll() fails it returns empty array []
+- `String.matchAll(regex)` method is used to find all matches between a regular expression and the string object.
+- `matchAll()` method returns an iterable containing all matches along with their details.
+- It requires a regular expression with the global flga (`g`)
+- If `matchAll()` fails, it returns an empty array `[]`.
 
 #### Examples
 
@@ -362,7 +342,7 @@ const string = "The rain in SPAIN stays mainly in the plain";
 
 console.log([...string.matchAll("ain")]);
 
-// matchAll() will convert this into regular expression like this by adding global modifier
+// matchAll() converts this to a regular expression by adding a global modifier
 // string.matchAll(/ain/g)
 /* 
 [
@@ -392,13 +372,12 @@ console.log([...string.matchAll(/w/gi)]); // []
 
 ### 21. replace
 
-- String.replace(searchString, replaceString) is used whenever we want to
-- replace a substring inside our string with another string
-- searchString can be string or regular expression
-- it returns a new string not modifying original string
-- replace only replace the first occurrence of the match
-- the second parameter can be a function and the function takes a parameter which is the match
-- String.replace(searchString, replaceFunction)
+- The `String.replace(searchString, replaceString)` method is used to replace a substring inside a string with another string.
+- `searchString` can be either a string or a regular expression.
+- The method returns a new string and does not modify the original string.
+- By default, `replace()` will only replaces the first occurrence of the match unless the global flag(`g`) is used in the regular expression.
+- The second parameter can also be a function. If a function is used, it takes the matched substring as it's parameter.
+- Function usage: `String.replace(searchString, replaceFunction)`
 
 #### Examples
 
@@ -417,11 +396,11 @@ console.log(string.replace(/blue/gi, "red")); // Mr red has a red house and a re
 
 ### 22. replaceAll
 
-- String.replaceAll(searchString, replaceString) will replace all the match of the string
-- searchString can be string or regular expression
-- it returns a new string not modifying original string
-- the second parameter can be a function and the function takes a parameter which is the match
-- String.replaceAll(searchString, replaceFunction)
+- `String.replaceAll(searchString, replaceString)` method replaces all matches of the string with another string.
+- `searchString` can be either a string or a regular expression.
+- It returns a new string and does not modify the original string.
+- The second parameter can also be a function that takes the matched substring as its argument.
+- Usage: `String.replaceAll(searchString, replaceFunction)`
 
 #### Examples
 
@@ -438,12 +417,48 @@ console.log(string.replaceAll(/blue/g, "red")); // Mr Blue has a red house and a
 console.log(string.replaceAll(/blue/gi, "red")); // Mr red has a red house and a red car
 ```
 
-### 23. charCodeAt
+### 23. charAt
+- String.charAt(index) is used to get the character at a specific position in a string.
+- It takes a parameter index (position in the string) and returns the character at that position.
+- If no index is provided, the default value is 0 (the first character).
 
-- String.codePointAt(index) is UTF-16 based and range is from 0 to 65535
-- Returns the Unicode value of the character at the specified location.
-- when parameter index is not passed by default it would be 0 index
-- if there is no element at the position(index) it'll return NaN
+#### Examples
+```js
+const string = "Ok 👍";  
+console.log(string.charAt(0)); // 'O'
+console.log(string.charAt(1)); // 'k'
+console.log(string.charAt(2)); // ' '
+console.log(string.charAt(3)); // '👍'
+console.log(string.charAt(5)); // ''
+```
+
+### 24. charCodeAt
+
+- The `String.charCodeAt(index)` method is based on UTF-16 and accepts an index ranging from 0 to the length of the string minus one.
+- It returns the Unicode value of the character at the specified index.
+- If the `index` parameter is not provided, it defaults to 0.
+- If there is no character at the specified position, it will return `NaN`.
+
+#### Examples
+
+```js
+const str = "Ok 👍";
+console.log(str.length); // 5
+console.log(str.charCodeAt(0)); // 79
+console.log(str.charCodeAt(1)); // 107
+console.log(str.charCodeAt(2)); // 32
+console.log(str.charCodeAt(3)); // 55357
+console.log(str.charCodeAt(4)); // 56397
+console.log(str.charCodeAt(5)); // NaN
+console.log(str.charCodeAt()); // 79
+```
+
+### 25. codePointAt
+
+- The `String.codePointAt(index)` method is based on Unicode and represents code points (not limited to 16-bit characters), it accepts an index ranging from 0 to the length of the string minus one.
+- It returns the Unicode value of the character at the specified index.
+- If the `index` parameter is not provided, it defaults to 0.
+- If there is no character at the specified position, it will return `undefined`.
 
 #### Examples
 
@@ -453,84 +468,65 @@ console.log(str.length); // 5
 console.log(str.codePointAt(0)); // 79
 console.log(str.codePointAt(1)); // 107
 console.log(str.codePointAt(2)); // 32
-console.log(str.codePointAt(3)); // 55357
-console.log(str.codePointAt(4)); // 56397
-console.log(str.codePointAt(5)); // NaN
-console.log(str.codePointAt()); // 99
-```
-
-### 24. codePointAt
-
-- String.codePointAt(index) is Unicode based and range is from 0 to 65535 & > 65355
-- Returns the Unicode value of the character at the specified location.
-- when parameter index is not passed by default it would be 0 index
-- if there is no element at the position(index) it'll return undefined
-
-#### Examples
-
-```js
-const str = "Ok 👍";
-console.log(str.length); // 5
-console.log(str.code(0)); // 79
-console.log(str.codePointAt(1)); // 107
-console.log(str.codePointAt(2)); // 32
 console.log(str.codePointAt(3)); // 128077
 console.log(str.codePointAt(4)); // 56397
 console.log(str.codePointAt(5)); // NaN
-console.log(str.codePointAt()); // 99
+console.log(str.codePointAt()); // 79
 ```
 
-### 25. fromCharCode
+### 26. fromCharCode
 
-- String.fromCharCode(num) is used whenever we want to get
-- actual value from a unicode
+- `String.fromCharCode(num1, num2, ..., numN)` is used to obtain the actual value/string from one or more UTF-16 code units.
+- Every number passed as an argument corresponds to the Unicode vlaue of the desired character.
 
 #### Examples
 
 ```js
 console.log(String.fromCharCode(79)); // 'O'
 console.log(String.fromCharCode(107)); // 'k'
-console.log(String.fromCharCode(32)); // '  '
-console.log(String.fromCharCode(55357)); // �
-console.log(String.fromCharCode(56397)); // 'k'
-
-console.log(String.fromCharCode(79, 107, 32, 55357, 56397)); // 'Ok 👍
+console.log(String.fromCharCode(32)); // ' ' (space)
+console.log(String.fromCharCode(55357)); // '\ud83d'
+console.log(String.fromCharCode(56397)); // '\udc4d'
+console.log(String.fromCharCode(79, 107, 32, 55357, 56397)); // 'Ok 👍'
 ```
 
-### 26. fromCodePoint
+### 27. fromCodePoint
 
-- String.fromCodePoint(num) is used whenever we want to get
-- actual value from a unicode
+- `String.fromCodePoint(num1, num2, ..., numN)` is used to obtain the actual value/string from one or more Unicode code points.
+- Unlike `fromCharCode()`, this method can handle characters represented by more than 16 bits.
 
 #### Examples
 
 ```js
 console.log(String.fromCodePoint(79)); // 'O'
 console.log(String.fromCodePoint(107)); // 'k'
-console.log(String.fromCodePoint(32)); // ' '
-console.log(String.fromCodePoint(128077)); // 👍
-console.log(String.fromCodePoint(56397)); // �
+console.log(String.fromCodePoint(32)); // ' ' (space)
+console.log(String.fromCodePoint(128077)); // 👍 (example emoji)
+console.log(String.fromCodePoint(56397)); // '\udc4d'
 
-console.log(String.fromCodePoint(79, 107, 32, 55357, 56397)); // 'Ok 👍'
-console.log(String.fromCodePoint(79, 107, 32, 128077)); // 'Ok 👍
+console.log(String.fromCodePoint(79, 107, 32, 55357, 56397)); // 'Ok �'
+console.log(String.fromCodePoint(79, 107, 32, 128077)); // 'Ok 👍'
 ```
 
-### 27. normalize
+### 28. normalize
 
-- String.normalize(form) // form => NFC/NFD default NFC
-- Returns the String value result of normalizing the string into the normalization form named by form as specified in Unicode Standard Annex #15, Unicode Normalization Forms
+- `String.normalize(form)` normalizes the string to the specified Unicode normalization form, where the default is NFC (Canonical Composition).
+- Other possible normalization forms are:
+  - "NFD" (Canonical Decomposition)
+  - "NFKC" (Compatibility Composition)
+  - "NFKD" (Compatibility Decomposition)
 
 #### Examples
 
 ```js
-// before normalization
+// Before normalization
 let str1 = "\u00c7"; // Ç
 console.log(str1.length); // 1
 
-let str2 = "\u0043\u0327"; // ̧C = C + ̧
+let str2 = "\u0043\u0327"; // C +  ̧
 console.log(str2.length); // 2
 
-// after normalization
+// After normalization
 str1 = str1.normalize();
 console.log(str1.length); // 1
 console.log(str1.codePointAt(0)); // 199
@@ -540,72 +536,65 @@ console.log(str2.length); // 1
 console.log(str2.codePointAt(0)); // 199
 
 str1 = str1.normalize("NFD");
-console.log(str1.length);
+console.log(str1.length); // 2
 console.log(str1.codePointAt(0)); // 67
 console.log(str1.codePointAt(1)); // 807
 ```
 
-### 28. toLowerCase
+### 29. toLowerCase
 
-- String.toLowerCase() is used whenever we want to all
-- the alphabetic character to be lower case or small letter
-- toLowerCase() returns a new string without changing the original string
+- `String.toLowerCase()` is used to convert all alphabetic characters in a string to lowercase. 
+- This method returns a new string without modifying the original string.
 
 #### Examples
 
 ```js
 const string = "My name is Jisan";
-console.log(string.toLowerCase()); // my name is jisan
+console.log(string.toLowerCase()); // 'my name is jisan'
 ```
 
-### 29. toUpperCase
+### 30. toUpperCase
 
-- String.toUpperCase() is used whenever we want to all
-- the alphabetic character to be upper case or capital letter
-- toUpperCase() returns a new string without changing the original string
+- `String.toUpperCase()` is used to convert all alphabetic characters in a string to uppercase.
+- Similar to `toLowerCase()`, this method also returns a new string without changing the original string.
 
 #### Examples
 
 ```js
 const string = "my name is jisan";
-console.log(string.toUpperCase()); // MY NAME IS JISAN
+console.log(string.toUpperCase()); // 'MY NAME IS JISAN'
 ```
 
-### 30. toLocaleLowerCase
+### 31. toLocaleLowerCase
 
-- String.toLocaleLowerCase(local)
-- Converts all alphabetic characters to lowercase, taking into account the host environment's current locale.
-- toLocaleLowerCase() returns a new string without changing the original string
+- `String.toLocaleLowerCase(local)` converts all alphabetic characters to lowercase based on the current locale environment.
+- Like other methods, it returns a new string without altering the original string.
 
 #### Examples
 
 ```js
 const string = "ISTANBUL";
-console.log(string.toLocaleUpperCase("en-US")); // istanbul
-
-console.log(string.toLocaleLowerCase("tr")); // ıstanbul
+console.log(string.toLocaleLowerCase("en-US")); // 'istanbul'
+console.log(string.toLocaleLowerCase("tr")); // 'ıstanbul' (Turkish locale)
 ```
 
-### 31. toLocaleUpperCase
+### 32. toLocaleUpperCase
 
-- String.toLocaleUpperCase(local)
-- Converts all alphabetic characters to uppercase, taking into account the host environment's current locale.
-- toLocaleUpperCase() returns a new string without changing the original string
+- `String.toLocaleUpperCase(local)` converts all alphabetic characters to uppercase, taking into account the current locale environment.
+- This method also returns a new string without modifying the original.
 
 #### Examples
 
 ```js
 const string = "istanbul";
-console.log(string.toLocaleUpperCase("en-US")); // ISTANBUL
-
-console.log(string.toLocaleUpperCase("tr")); // İSTANBUL
+console.log(string.toLocaleUpperCase("en-US")); // 'ISTANBUL'
+console.log(string.toLocaleUpperCase("tr")); // 'İSTANBUL' (Turkish locale)
 ```
 
-### 32. toString
+### 33. toString
 
-- String.prototype.toString()
-- Returns a string representation of a string.
-- no need to use toString() method explicitly
+- `String.prototype.toString()` returns a string representation of a string object.
+- There is no need to call the `toString()` method explicitly, as string values are automatically converted.
 
 #### Examples
 
@@ -614,11 +603,10 @@ const string = "Hello World!";
 console.log(string.toString()); // 'Hello World!'
 ```
 
-### 33. valueOf
+### 34. valueOf
 
-- String.prototype.valueOf()
-- Returns the primitive value of the specified object.
-- no need to use valueOf() method explicitly
+- `String.prototype.valueOf()` returns the primitive value of a specified string object.
+- Like `toString()`, it does not need to be called explicitly.
 
 #### Examples
 
@@ -627,9 +615,10 @@ const string = "Hello World!";
 console.log(string.valueOf()); // 'Hello World!'
 ```
 
-### 34. raw
+### 35. raw
 
-- String.raw`templateString`
+- 'String.raw`templateString`' is used with template strings.
+- It creates raw string literal meaning that escape sequence (like \n or \t) are not processed.
 
 #### Examples
 
@@ -637,11 +626,15 @@ console.log(string.valueOf()); // 'Hello World!'
 const string = `C\windows\registration\name\filename.js`;
 console.log(string);
 /* 
+This may output:
 egistration
 ame
-ilename.js
+   ilename.js
 */
 
-const escapedFlag = String.raw`C\windows\registration\name\filename.js`;
-console.log(escapedFlag); // C\windows\registration\name\filename.js
-```
+const escapedString = String.raw`C\windows\registration\name\filename.js`;
+console.log(escapedString); // Outputs: C\windows\registration\name\filename.js
+``` 
+
+---
+Originally written at [https://github.com/Jisan-mia/string-methods](https://github.com/Jisan-mia/string-methods)
