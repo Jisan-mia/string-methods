@@ -171,7 +171,7 @@ It is strongly recommended to use the assignment operators (+, +=) instead of th
 - It returns a new string without modifying the original string.
 - If `0` or no parameter is passed, `repeat()` will return an empty string.
 - If a decimal number is passed, `repeat()` will convert it into an integer.
-- Passing `-1` as the counter will result in a `RangeError`.
+- Passing any negative value as the counter will return a `RangeError`.
 
 #### Examples
 
@@ -204,9 +204,9 @@ console.log(trimmedStr); // 'Hello World'
 
 ### 13. trimStart
 
-- `String.trimStart()` is used to remove whitespace from the beginning of a string.
+- `String.trimStart()` is used to remove whitespace from the start of a string.
 - It removes leading whitespace and line terminator characters.
-- It returns a new string without modifying the original string.
+- It returns a new string and does not modify the original string.
 
 #### Examples
 
@@ -266,11 +266,11 @@ console.log(string.padEnd(2)); // 'abc'
 
 ### 17. localeCompare
 
-- `referenceString.localeCompare(compareString)` is used to compare two strings.
+- `referenceString.localeCompare(compareString)` is used whenever we want to compare two strings.
 - `localeCompare()` returns a numeric value:
-  - If `referenceString` comes before `compareString`, it returns a negative value (-1, -2, -3).
-  - If `referenceString` comes after `compareString`, it returns a positive value (+1, +2).
-  - If both strings are equivalent, it returns `0`.
+  - If `referenceString` comes before `compareString`, t will return a negative value (-1, -2, -3, etc.).
+  - If `referenceString` comes after `compareString`, it will return a positive value (+1, +2, etc.).
+  - If the referenceString is equivalent to compareString, it will return 0.
 
 #### Examples
 
@@ -286,7 +286,7 @@ console.log(a.localeCompare(a)); // 0
 ### 18. search
 
 - `String.search(regex)` is used to search for a match between a regular expression and the string object.
-- `search()` always returns the index of the first match and is case sensitive.
+- `search()` will always returns the index of the first match and it is case sensitive.
 - If no match is found, it returns `-1`.
 
 #### Examples
@@ -303,9 +303,9 @@ console.log(string.search(/w/)); // -1
 
 ### 19. match
 
-- The `String.match(regex)` method is used to find a match between a regular expression and a string object.
-- The `match()` method returns an array containing information about the match.
-- It will only return the first match it finds.
+- `String.match(regex)` method is used to find a match between a regular expression and the string object.
+- `match()` method returns an array containing information about the match.
+- It will return only the first match it finds unless the global flag(`g`) is used in the regular expression.
 - If `match()` fails, it returns `null`.
 
 #### Examples
@@ -322,7 +322,7 @@ console.log(string.match("ain")); // The match() method converts 'ain' into a re
   groups: undefined
 ]
 */
-console.log(string.match(/ain/));
+console.log(string.match(/ain/)); // same as the first example
 console.log(string.match(/AIN/g)); // [ 'AIN' ]
 console.log(string.match(/AIN/gi)); // [ 'ain', 'AIN', 'ain', 'ain' ]
 console.log(string.match(/w/)); // null
@@ -330,8 +330,9 @@ console.log(string.match(/w/)); // null
 
 ### 20. matchAll
 
-- The `String.matchAll(regex)` method is used to find all matches between a regular expression and a string object.
-- The `matchAll()` method returns an iterable containing all matches along with their details.
+- `String.matchAll(regex)` method is used to find all matches between a regular expression and the string object.
+- `matchAll()` method returns an iterable containing all matches along with their details.
+- It requires a regular expression with the global flga (`g`)
 - If `matchAll()` fails, it returns an empty array `[]`.
 
 #### Examples
@@ -371,12 +372,12 @@ console.log([...string.matchAll(/w/gi)]); // []
 
 ### 21. replace
 
-- The `String.replace(searchString, replaceString)` method is used to replace a substring within a string with another string.
+- The `String.replace(searchString, replaceString)` method is used to replace a substring inside a string with another string.
 - `searchString` can be either a string or a regular expression.
 - The method returns a new string and does not modify the original string.
-- By default, `replace()` will only change the first occurrence of the match.
-- The second parameter can also be a function that takes the match as an argument.
-- Usage: `String.replace(searchString, replaceFunction)`
+- By default, `replace()` will only replaces the first occurrence of the match unless the global flag(`g`) is used in the regular expression.
+- The second parameter can also be a function. If a function is used, it takes the matched substring as it's parameter.
+- Function usage: `String.replace(searchString, replaceFunction)`
 
 #### Examples
 
@@ -395,10 +396,10 @@ console.log(string.replace(/blue/gi, "red")); // Mr red has a red house and a re
 
 ### 22. replaceAll
 
-- The `String.replaceAll(searchString, replaceString)` method replaces all occurrences of a substring in a string.
+- `String.replaceAll(searchString, replaceString)` method replaces all matches of the string with another string.
 - `searchString` can be either a string or a regular expression.
 - It returns a new string and does not modify the original string.
-- The second parameter can also be a function that takes the match as an argument.
+- The second parameter can also be a function that takes the matched substring as its argument.
 - Usage: `String.replaceAll(searchString, replaceFunction)`
 
 #### Examples
@@ -416,7 +417,22 @@ console.log(string.replaceAll(/blue/g, "red")); // Mr Blue has a red house and a
 console.log(string.replaceAll(/blue/gi, "red")); // Mr red has a red house and a red car
 ```
 
-### 23. charCodeAt
+### 23. charAt
+- String.charAt(index) is used to get the character at a specific position in a string.
+- It takes a parameter index (position in the string) and returns the character at that position.
+- If no index is provided, the default value is 0 (the first character).
+
+#### Examples
+```js
+const string = "Ok 👍";  
+console.log(string.charAt(0)); // 'O'
+console.log(string.charAt(1)); // 'k'
+console.log(string.charAt(2)); // ' '
+console.log(string.charAt(3)); // '👍'
+console.log(string.charAt(5)); // ''
+```
+
+### 24. charCodeAt
 
 - The `String.charCodeAt(index)` method is based on UTF-16 and accepts an index ranging from 0 to the length of the string minus one.
 - It returns the Unicode value of the character at the specified index.
@@ -437,9 +453,9 @@ console.log(str.charCodeAt(5)); // NaN
 console.log(str.charCodeAt()); // 79
 ```
 
-### 24. codePointAt
+### 25. codePointAt
 
-- The `String.codePointAt(index)` method is based on Unicode and accepts an index ranging from 0 to the length of the string minus one.
+- The `String.codePointAt(index)` method is based on Unicode and represents code points (not limited to 16-bit characters), it accepts an index ranging from 0 to the length of the string minus one.
 - It returns the Unicode value of the character at the specified index.
 - If the `index` parameter is not provided, it defaults to 0.
 - If there is no character at the specified position, it will return `undefined`.
@@ -457,9 +473,11 @@ console.log(str.codePointAt(4)); // 56397
 console.log(str.codePointAt(5)); // NaN
 console.log(str.codePointAt()); // 79
 ```
-### 25. fromCharCode
 
-- `String.fromCharCode(num)` is used to obtain the actual value from a Unicode code point.
+### 26. fromCharCode
+
+- `String.fromCharCode(num1, num2, ..., numN)` is used to obtain the actual value/string from one or more UTF-16 code units.
+- Every number passed as an argument corresponds to the Unicode vlaue of the desired character.
 
 #### Examples
 
@@ -467,15 +485,15 @@ console.log(str.codePointAt()); // 79
 console.log(String.fromCharCode(79)); // 'O'
 console.log(String.fromCharCode(107)); // 'k'
 console.log(String.fromCharCode(32)); // ' ' (space)
-console.log(String.fromCharCode(55357)); // � (unknown character)
-console.log(String.fromCharCode(56397)); // 'k'
-
-console.log(String.fromCharCode(79, 107, 32, 55357, 56397)); // 'Ok �k'
+console.log(String.fromCharCode(55357)); // '\ud83d'
+console.log(String.fromCharCode(56397)); // '\udc4d'
+console.log(String.fromCharCode(79, 107, 32, 55357, 56397)); // 'Ok 👍'
 ```
 
-### 26. fromCodePoint
+### 27. fromCodePoint
 
-- `String.fromCodePoint(num)` is used to obtain the actual value from a Unicode code point.
+- `String.fromCodePoint(num1, num2, ..., numN)` is used to obtain the actual value/string from one or more Unicode code points.
+- Unlike `fromCharCode()`, this method can handle characters represented by more than 16 bits.
 
 #### Examples
 
@@ -484,15 +502,19 @@ console.log(String.fromCodePoint(79)); // 'O'
 console.log(String.fromCodePoint(107)); // 'k'
 console.log(String.fromCodePoint(32)); // ' ' (space)
 console.log(String.fromCodePoint(128077)); // 👍 (example emoji)
-console.log(String.fromCodePoint(56397)); // � (unknown character)
+console.log(String.fromCodePoint(56397)); // '\udc4d'
 
 console.log(String.fromCodePoint(79, 107, 32, 55357, 56397)); // 'Ok �'
 console.log(String.fromCodePoint(79, 107, 32, 128077)); // 'Ok 👍'
 ```
 
-### 27. normalize
+### 28. normalize
 
-- `String.normalize(form)` normalizes the string to the specified Unicode normalization form, where the default is NFC (Normalization Form C).
+- `String.normalize(form)` normalizes the string to the specified Unicode normalization form, where the default is NFC (Canonical Composition).
+- Other possible normalization forms are:
+  - "NFD" (Canonical Decomposition)
+  - "NFKC" (Compatibility Composition)
+  - "NFKD" (Compatibility Decomposition)
 
 #### Examples
 
@@ -519,7 +541,7 @@ console.log(str1.codePointAt(0)); // 67
 console.log(str1.codePointAt(1)); // 807
 ```
 
-### 28. toLowerCase
+### 29. toLowerCase
 
 - `String.toLowerCase()` is used to convert all alphabetic characters in a string to lowercase. 
 - This method returns a new string without modifying the original string.
@@ -531,10 +553,10 @@ const string = "My name is Jisan";
 console.log(string.toLowerCase()); // 'my name is jisan'
 ```
 
-### 29. toUpperCase
+### 30. toUpperCase
 
 - `String.toUpperCase()` is used to convert all alphabetic characters in a string to uppercase.
-- Similar to `toLowerCase()`, this method returns a new string without changing the original string.
+- Similar to `toLowerCase()`, this method also returns a new string without changing the original string.
 
 #### Examples
 
@@ -543,7 +565,7 @@ const string = "my name is jisan";
 console.log(string.toUpperCase()); // 'MY NAME IS JISAN'
 ```
 
-### 30. toLocaleLowerCase
+### 31. toLocaleLowerCase
 
 - `String.toLocaleLowerCase(local)` converts all alphabetic characters to lowercase based on the current locale environment.
 - Like other methods, it returns a new string without altering the original string.
@@ -553,10 +575,10 @@ console.log(string.toUpperCase()); // 'MY NAME IS JISAN'
 ```js
 const string = "ISTANBUL";
 console.log(string.toLocaleLowerCase("en-US")); // 'istanbul'
-console.log(string.toLocaleLowerCase("tr")); // 'ıstanbul'
+console.log(string.toLocaleLowerCase("tr")); // 'ıstanbul' (Turkish locale)
 ```
 
-### 31. toLocaleUpperCase
+### 32. toLocaleUpperCase
 
 - `String.toLocaleUpperCase(local)` converts all alphabetic characters to uppercase, taking into account the current locale environment.
 - This method also returns a new string without modifying the original.
@@ -566,12 +588,12 @@ console.log(string.toLocaleLowerCase("tr")); // 'ıstanbul'
 ```js
 const string = "istanbul";
 console.log(string.toLocaleUpperCase("en-US")); // 'ISTANBUL'
-console.log(string.toLocaleUpperCase("tr")); // 'İSTANBUL'
+console.log(string.toLocaleUpperCase("tr")); // 'İSTANBUL' (Turkish locale)
 ```
 
-### 32. toString
+### 33. toString
 
-- `String.prototype.toString()` returns a string representation of a string.
+- `String.prototype.toString()` returns a string representation of a string object.
 - There is no need to call the `toString()` method explicitly, as string values are automatically converted.
 
 #### Examples
@@ -581,7 +603,7 @@ const string = "Hello World!";
 console.log(string.toString()); // 'Hello World!'
 ```
 
-### 33. valueOf
+### 34. valueOf
 
 - `String.prototype.valueOf()` returns the primitive value of a specified string object.
 - Like `toString()`, it does not need to be called explicitly.
@@ -593,9 +615,10 @@ const string = "Hello World!";
 console.log(string.valueOf()); // 'Hello World!'
 ```
 
-### 34. raw
+### 35. raw
 
-- `String.raw` is used with template strings.
+- 'String.raw`templateString`' is used with template strings.
+- It creates raw string literal meaning that escape sequence (like \n or \t) are not processed.
 
 #### Examples
 
@@ -606,7 +629,7 @@ console.log(string);
 This may output:
 egistration
 ame
-ilename.js
+   ilename.js
 */
 
 const escapedString = String.raw`C\windows\registration\name\filename.js`;
