@@ -1,12 +1,14 @@
 ### 1. charAt
 
 - The `String.charAt(index)` method takes a parameter `index` (the position in the string) and returns the character at that index in the string.
+- If no index is provided, the default value is 0 (the first character).
 
 #### Examples
 
 ```js
 const string = "Hello World!";
 console.log(string.charAt(4)); // 'o'
+console.log(string.charAt()); // 'H'
 ```
 
 ### 2. indexOf
@@ -417,22 +419,7 @@ console.log(string.replaceAll(/blue/g, "red")); // Mr Blue has a red house and a
 console.log(string.replaceAll(/blue/gi, "red")); // Mr red has a red house and a red car
 ```
 
-### 23. charAt
-- String.charAt(index) is used to get the character at a specific position in a string.
-- It takes a parameter index (position in the string) and returns the character at that position.
-- If no index is provided, the default value is 0 (the first character).
-
-#### Examples
-```js
-const string = "Ok 👍";  
-console.log(string.charAt(0)); // 'O'
-console.log(string.charAt(1)); // 'k'
-console.log(string.charAt(2)); // ' '
-console.log(string.charAt(3)); // '👍'
-console.log(string.charAt(5)); // ''
-```
-
-### 24. charCodeAt
+### 23. charCodeAt
 
 - The `String.charCodeAt(index)` method is based on UTF-16 and accepts an index ranging from 0 to the length of the string minus one.
 - It returns the Unicode value of the character at the specified index.
@@ -453,7 +440,7 @@ console.log(str.charCodeAt(5)); // NaN
 console.log(str.charCodeAt()); // 79
 ```
 
-### 25. codePointAt
+### 24. codePointAt
 
 - The `String.codePointAt(index)` method is based on Unicode and represents code points (not limited to 16-bit characters), it accepts an index ranging from 0 to the length of the string minus one.
 - It returns the Unicode value of the character at the specified index.
@@ -474,7 +461,7 @@ console.log(str.codePointAt(5)); // NaN
 console.log(str.codePointAt()); // 79
 ```
 
-### 26. fromCharCode
+### 25. fromCharCode
 
 - `String.fromCharCode(num1, num2, ..., numN)` is used to obtain the actual value/string from one or more UTF-16 code units.
 - Every number passed as an argument corresponds to the Unicode vlaue of the desired character.
@@ -490,7 +477,7 @@ console.log(String.fromCharCode(56397)); // '\udc4d'
 console.log(String.fromCharCode(79, 107, 32, 55357, 56397)); // 'Ok 👍'
 ```
 
-### 27. fromCodePoint
+### 26. fromCodePoint
 
 - `String.fromCodePoint(num1, num2, ..., numN)` is used to obtain the actual value/string from one or more Unicode code points.
 - Unlike `fromCharCode()`, this method can handle characters represented by more than 16 bits.
@@ -508,7 +495,7 @@ console.log(String.fromCodePoint(79, 107, 32, 55357, 56397)); // 'Ok �'
 console.log(String.fromCodePoint(79, 107, 32, 128077)); // 'Ok 👍'
 ```
 
-### 28. normalize
+### 27. normalize
 
 - `String.normalize(form)` normalizes the string to the specified Unicode normalization form, where the default is NFC (Canonical Composition).
 - Other possible normalization forms are:
@@ -541,7 +528,7 @@ console.log(str1.codePointAt(0)); // 67
 console.log(str1.codePointAt(1)); // 807
 ```
 
-### 29. toLowerCase
+### 28. toLowerCase
 
 - `String.toLowerCase()` is used to convert all alphabetic characters in a string to lowercase. 
 - This method returns a new string without modifying the original string.
@@ -553,7 +540,7 @@ const string = "My name is Jisan";
 console.log(string.toLowerCase()); // 'my name is jisan'
 ```
 
-### 30. toUpperCase
+### 29. toUpperCase
 
 - `String.toUpperCase()` is used to convert all alphabetic characters in a string to uppercase.
 - Similar to `toLowerCase()`, this method also returns a new string without changing the original string.
@@ -565,7 +552,7 @@ const string = "my name is jisan";
 console.log(string.toUpperCase()); // 'MY NAME IS JISAN'
 ```
 
-### 31. toLocaleLowerCase
+### 30. toLocaleLowerCase
 
 - `String.toLocaleLowerCase(local)` converts all alphabetic characters to lowercase based on the current locale environment.
 - Like other methods, it returns a new string without altering the original string.
@@ -578,7 +565,7 @@ console.log(string.toLocaleLowerCase("en-US")); // 'istanbul'
 console.log(string.toLocaleLowerCase("tr")); // 'ıstanbul' (Turkish locale)
 ```
 
-### 32. toLocaleUpperCase
+### 31. toLocaleUpperCase
 
 - `String.toLocaleUpperCase(local)` converts all alphabetic characters to uppercase, taking into account the current locale environment.
 - This method also returns a new string without modifying the original.
@@ -591,7 +578,7 @@ console.log(string.toLocaleUpperCase("en-US")); // 'ISTANBUL'
 console.log(string.toLocaleUpperCase("tr")); // 'İSTANBUL' (Turkish locale)
 ```
 
-### 33. toString
+### 32. toString
 
 - `String.prototype.toString()` returns a string representation of a string object.
 - There is no need to call the `toString()` method explicitly, as string values are automatically converted.
@@ -603,7 +590,7 @@ const string = "Hello World!";
 console.log(string.toString()); // 'Hello World!'
 ```
 
-### 34. valueOf
+### 33. valueOf
 
 - `String.prototype.valueOf()` returns the primitive value of a specified string object.
 - Like `toString()`, it does not need to be called explicitly.
@@ -615,7 +602,7 @@ const string = "Hello World!";
 console.log(string.valueOf()); // 'Hello World!'
 ```
 
-### 35. raw
+### 34. raw
 
 - 'String.raw`templateString`' is used with template strings.
 - It creates raw string literal meaning that escape sequence (like \n or \t) are not processed.
